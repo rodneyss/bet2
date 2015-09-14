@@ -113,7 +113,7 @@ class Console
   end
 
   def valid_result(str)
-    str =~ /^RESULT:\d+:\d+:\d+/
+    str =~ /^RESULT:\d+:\d+:\d+$/
   end
 
   def valid_string?(str)
