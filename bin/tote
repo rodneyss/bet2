@@ -1,0 +1,30 @@
+require_relative "../lib/bet"
+require_relative "../lib/console"
+require_relative "../lib/race"
+
+race = Race.new([1,2,3,4,5,6,7,8])
+console = Console.new(race)
+
+def instructions
+  puts "--------------Bet Calc-----------------"
+  puts
+  puts "Horses: 1,2,3,4,5,6,7,8"
+  puts "Bet types: [W]in, [P]lace, [E]xacta"
+  puts
+  puts "Place bet by using the following examples"  
+  puts "=> Bet:W:3:5 '$5 bet on horse 3 to win'"
+  puts "=> Bet:P:2:10 '$10 bet on horse 2 to come 1st, 2nd, or 3rd'"
+  puts "=> Bet:E:5,7:15 '$15 bet on horses 5 and 7 to come 1st and 2nd in that order'"
+  puts
+  puts "Close betting and enter results with the following"
+  puts "=> Result:2:3:1 'horse 2 won, horse 3 placed second, horse 1 placed third'"
+  puts
+  puts "type 'seed' to enter bet data from /data/seed.txt file"
+  puts "---------------------------------------"
+end
+
+instructions
+
+until race.results do
+  console.ask_input
+end
